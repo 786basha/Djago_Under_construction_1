@@ -5,7 +5,16 @@ from .models import Register
 # Create your views here.
 
 def home(request):
-    return render(request,'home.html')
+    m = Register.objects.all()
+    if request.method == "POST":
+        a = request.POST['roll_i']
+        b = request.POST['name_i']
+        c = request.POST['mail_i']
+        d = request.POST['age_i']
+        p = Register(roll=a,name=b,mail=c,age=d)
+        p.save()
+        return redirect('/Admin_ID=123')
+    return render(request,'home.html',{'g':m})
 
 def about(request):
     m = Register.objects.all()
@@ -16,7 +25,7 @@ def about(request):
         d = request.POST['age_i']
         p = Register(roll=a,name=b,mail=c,age=d)
         p.save()
-        return redirect('/about')
+        return redirect('/Register')
     return render(request,'about.html',{'g':m})
 
 def usrup(request,h):
@@ -27,15 +36,15 @@ def usrup(request,h):
         a.mail = request.POST['mail_i']
         a.age = request.POST['age_i']
         a.save()
-        return redirect('/about')
+        return redirect('/Admin_ID=123')
     return render(request,'usrup.html',{'t':a})
 
 # def usrdel(request):
 #     return render(request,'usrdel.html')
 
 def usrdel(request,u):
-	k = Register.objects.get(id=u)
-	if request.method == "POST":
-		k.delete()
-		return redirect('/about')
-	return render(request,'usrdel.html',{'p':k})
+        k = Register.objects.get(id=u)
+        if request.method == "POST":
+                k.delete()
+                return redirect('/Admin_ID=123')
+        return render(request,'usrdel.html',{'p':k})

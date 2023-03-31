@@ -5,30 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete an user</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      *{
+        
+      }
+      .bb{
+        width: 90vw;height: 90vh;margin: auto;
+      }
+      form{
+        display: flex;align-items: center;justify-content: center;flex-direction: column;width: 350px;height: 400px;margin: auto;box-shadow: 10px 10px 50px black;margin-top: 10%;
+      }
+      form h2{
+        font-size: 25px;
+        text-decoration: underline;
+      }
+      .row{
+        display: flex;
+      }
+      .row .col a{
+        padding: 10px;margin: 0 10px;
+      }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card col-md-5 mx-auto mt-4 shadow-lg">
-          <div class="card-body">
-            <h3>Student Update</h3>
-            <form method="post">
-              {% csrf_token %}
-              <h3>Are You Sure Want to delete {{p.name}} ?</h3>
-              <div class="row my-2">
-                <div class="col">
-                <a href="{% url 'ab' %}" class="form-control btn btn-outline-secondary">Back</a> 
-                </div>
-                <div class="col">
-                <input type="submit" value="Yes Confirm" class="form-control btn btn-outline-success"> 
-                </div>
-              </div>
-            </form>
-          </div>
+  <div class="bb">
+    <form method="post">
+      <h2>Student Delete</h2>
+      {% csrf_token %}
+      <h3>Are You Sure Want to delete <br> {{p.name}} ?</h3>
+      <div class="row">
+        <div class="col" style="margin-top: 8px;">
+          <a href="{% url 'hm' %}" style="padding: 10px;margin: 5px 10px;">Back</a> 
+        </div>
+        <div class="col">
+          <input type="submit" value="Yes Confirm" style="text-decoration: none;outline: none;padding: 10px;"> 
         </div>
       </div>
+    </form>
+  </div>
 </body>
 </html>
