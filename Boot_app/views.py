@@ -1,50 +1,67 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest
-from .models import Register
+from .models import *
 
 # Create your views here.
 
-def home(request):
-    m = Register.objects.all()
-    if request.method == "POST":
-        a = request.POST['roll_i']
-        b = request.POST['name_i']
-        c = request.POST['mail_i']
-        d = request.POST['age_i']
-        p = Register(roll=a,name=b,mail=c,age=d)
-        p.save()
-        return redirect('/Admin_ID=123')
-    return render(request,'home.html',{'g':m})
+def home1(request):
+    emp = Register.objects.all()
+    return render(request,'index.html',{'emp':emp});
 
-def about(request):
-    m = Register.objects.all()
-    if request.method == "POST":
-        a = request.POST['roll_i']
-        b = request.POST['name_i']
-        c = request.POST['mail_i']
-        d = request.POST['age_i']
-        p = Register(roll=a,name=b,mail=c,age=d)
-        p.save()
-        return redirect('/Register')
-    return render(request,'about.html',{'g':m})
+def add(request):
+    k = Register.objects.all()
+    if request.method=='POST':
+        roll = request.POST.get('roll')
+        name = request.POST.get('nam')
+        mail = request.POST.get('mail')
+        address = request.POST.get('address')
+        backlog = request.POST.get('backlog')
 
-def usrup(request,h):
-    a = Register.objects.get(id=h)
-    if request.method == "POST":
-        a.roll = request.POST['roll_i']
-        a.name = request.POST['name_i']
-        a.mail = request.POST['mail_i']
-        a.age = request.POST['age_i']
-        a.save()
-        return redirect('/Admin_ID=123')
-    return render(request,'usrup.html',{'t':a})
+        emp = Register(
+            roll = roll,
+            name = name,
+            mail = mail,
+            address = address,
+            backlog = backlog,
+        )
+        emp.save()
+        return redirect('home')
+    return render(request,'index.html',{'emp':k})
 
-# def usrdel(request):
-#     return render(request,'usrdel.html')
+def edit(request):
+    emp = Register.objects.all()
 
-def usrdel(request,u):
-        k = Register.objects.get(id=u)
-        if request.method == "POST":
-                k.delete()
-                return redirect('/Admin_ID=123')
-        return render(request,'usrdel.html',{'p':k})
+    context = {
+        'emp' : emp,
+    }
+    return render(request,'index.html',context)
+
+def update(request,h):
+    
+    if request.method == 'POST':
+        roll = request.POST.get('roll')
+        name = request.POST.get('nam')
+        mail = request.POST.get('mail')
+        address = request.POST.get('address')
+        backlog = request.POST.get('backlog')
+        emp = Register(
+            id = h,
+            roll = roll,
+            name = name,
+            mail = mail,
+            address = address,
+            backlog = backlog,
+        )
+        emp.save()
+        return redirect('home')
+    return render(request,'index.html')
+
+def DELETE(request,d):
+    emp = Register.objects.get(id=d).delete()
+
+    context = {
+        'emp' : emp,
+    }
+
+    return redirect('home')
+    return render(request,'index.html',context)
