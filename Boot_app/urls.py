@@ -11,4 +11,6 @@ urlpatterns = [
     path('Details',views.DETAIL,name='detail'),
     path('Details-Up/',views.Dtlup,name='updtl'),
     path('Dtl-Update/<int:id>',views.UpDtl,name='upup'),
+    path('Details-Del',views.DelDtl,name='delDTL'),
+    path('Dtl-Delete/<int:id>/',views.DELdtl,name='DELdtl'),
 ]

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Details</title>
     <style>
+        *{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         .p{
             width: 100vw;
             height: max-content;
@@ -69,40 +72,40 @@
                     {% csrf_token %}
                     <div class="aa">
                         <div class="a">
-                            <label for="">roll number</label>
-                            <input type="text" placeholder="Roll number" name="roll" id="">
+                            <label for="">Roll number</label>
+                            <input type="text" placeholder="Enter any Random Number" name="roll" id="" required>
                         </div>
                         <div class="a">
                             <label for="">Name</label>
-                            <input type="text" placeholder="Username" name="nam" id="">
+                            <input type="text" placeholder="Username" name="nam" id="" required>
                         </div>
                         <div class="a">
                             <label for="">Mail</label>
-                            <input type="email" placeholder="Enter E-mail ID" name="mail" id="">
+                            <input type="email" placeholder="Enter E-mail ID" name="mail" id="" required>
                         </div>
                         <div class="a">
                             <label for="">Phone</label>
-                            <input type="number" name="phone" placeholder="Enter Mobile Number" id="">
+                            <input type="number" name="phone" placeholder="Enter Mobile Number" id="" required>
                         </div>
                         <div class="a">
                             <label for="">Date of Birth</label>
-                            <input type="date" name="dob" id="">
+                            <input type="date" name="dob" id="" required>
                         </div>
                         <div class="a">
                             <label for="">Aadhaar Number</label>
-                            <input type="number" name="addar" placeholder="Enter Aadhaar Number">
+                            <input type="number" name="addar" placeholder="Enter Aadhaar Number" required>
                         </div>
                         <div class="a">
                             <label for="">Pan Number</label>
-                            <input type="text" placeholder="Enter Pan Number" name="pan">
+                            <input type="text" placeholder="Enter Pan Number" name="pan" required>
                         </div>
                         <div class="a">
                             <label for="">Bank Account Number</label>
-                            <input type="number" placeholder="Enter Account Number" name="bacc">
+                            <input type="number" placeholder="Enter Account Number" name="bacc" required>
                         </div>
                         <div class="a">
                             <label for="">IFSC Code</label>
-                            <input type="text" placeholder="Enter Bank IFSC code" name="bifsc" id="">
+                            <input type="text" placeholder="Enter Bank IFSC code" name="bifsc" id="" required>
                         </div>
                         <div class="b">
                             <input type="reset" name="" id="">
@@ -116,18 +119,14 @@
                     <table>
                         <tr>
                             <th>ID</th>
-                            <th>Roll Number</th>
                             <th>Name</th>
                             <th>Mobile</th>
-                            <th>Date of Birth</th>
                         </tr>
                         {% for i in k %}
                         <tr>
                             <td>{{forloop.counter}} </td>
-                            <td>{{i.roll}}</td>
                             <td>{{i.name}}</td>
                             <td>{{i.phone}}</td>
-                            <td>{{i.dob}} </td>
                         </tr>
                         {% endfor %}
                     </table>

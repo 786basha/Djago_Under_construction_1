@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpRequest
+from django.http import HttpResponse
 from .models import *
 
 # Create your views here.
@@ -126,3 +126,12 @@ def UpDtl(request,id):
         ds1.save()
         return redirect('updtl')
     return render(request,'update-Dtl.html',{'k':m});
+
+def DelDtl(request):
+    D = Details.objects.all()
+    return render(request,'befDel.html',{'k':D})
+
+def DELdtl(request,id):
+    D = Details.objects.get(id=id).delete()
+    return redirect('detail')
+    return render(request,'DtlDel.html',{'k':D})
