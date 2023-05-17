@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Details</title>
+    <style>
+        .p{
+            width: 100vw;
+            height: max-content;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .left{
+            width: 400px;
+            border: 1px solid black;
+            padding: 6px;
+        }
+        .right{
+            width: max-content;
+            height: max-content;
+            padding: 6px;
+            border: 1px solid red;
+        }
+        .aa{
+            margin: auto;
+            width: 400px;
+        }
+        label{
+            padding-top: 4px;
+        }
+        .a{
+            margin: auto;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            padding: 10px;
+        }
+        table{
+            text-align: center;
+        }
+        table th,table tr{
+            padding: 10px;
+        }
+        table th{
+            width: 140px;
+        }
+        .b{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-content: space-evenly;
+            margin: 7px;
+        }
+        .b input{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="p">
+            <div class="left">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="aa">
+                        <div class="a">
+                            <label for="">roll number</label>
+                            <input type="text" placeholder="Roll number" name="roll" id="">
+                        </div>
+                        <div class="a">
+                            <label for="">Name</label>
+                            <input type="text" placeholder="Username" name="nam" id="">
+                        </div>
+                        <div class="a">
+                            <label for="">Mail</label>
+                            <input type="email" placeholder="Enter E-mail ID" name="mail" id="">
+                        </div>
+                        <div class="a">
+                            <label for="">Phone</label>
+                            <input type="number" name="phone" placeholder="Enter Mobile Number" id="">
+                        </div>
+                        <div class="a">
+                            <label for="">Date of Birth</label>
+                            <input type="date" name="dob" id="">
+                        </div>
+                        <div class="a">
+                            <label for="">Aadhaar Number</label>
+                            <input type="number" name="addar" placeholder="Enter Aadhaar Number">
+                        </div>
+                        <div class="a">
+                            <label for="">Pan Number</label>
+                            <input type="text" placeholder="Enter Pan Number" name="pan">
+                        </div>
+                        <div class="a">
+                            <label for="">Bank Account Number</label>
+                            <input type="number" placeholder="Enter Account Number" name="bacc">
+                        </div>
+                        <div class="a">
+                            <label for="">IFSC Code</label>
+                            <input type="text" placeholder="Enter Bank IFSC code" name="bifsc" id="">
+                        </div>
+                        <div class="b">
+                            <input type="reset" name="" id="">
+                            <input type="submit" value="submit" id="">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <div class="m">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Roll Number</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Date of Birth</th>
+                        </tr>
+                        {% for i in k %}
+                        <tr>
+                            <td>{{forloop.counter}} </td>
+                            <td>{{i.roll}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.phone}}</td>
+                            <td>{{i.dob}} </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

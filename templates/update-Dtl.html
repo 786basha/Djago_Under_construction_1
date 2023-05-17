@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document - Update</title>
+    <style>
+        form{
+            width: max-content;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form  method="post">
+        {% csrf_token %}
+        {% for i in k %}
+        <div class="aa">
+            <div class="a">
+                <label for="">roll number</label>
+                <input type="text" value="{{i.roll}}" placeholder="Roll number" name="roll" id="">
+            </div>
+            <div class="a">
+                <label for="">Name</label>
+                <input type="text" value="{{i.name}}" placeholder="Username" name="nam" id="">
+            </div>
+            <div class="a">
+                <label for="">Mail</label>
+                <input type="email" value="{{i.mail}}" placeholder="Enter E-mail ID" name="mail" id="">
+            </div>
+            <div class="a">
+                <label for="">Phone</label>
+                <input type="text" value="{{i.phone}} " name="phone" placeholder="Enter Mobile Number" id="">
+            </div>
+            <div class="a">
+                <label for="">Date of Birth</label>
+                <input type="date" name="dob" value="{{i.dob}} " id="">
+            </div>
+            <div class="a">
+                <label for="">Aadhaar Number</label>
+                <input type="text" name="addar" value="{{i.addar}} " placeholder="Enter Aadhaar Number">
+            </div>
+            <div class="a">
+                <label for="">Pan Number</label>
+                <input type="text" value="{{i.pan}} " placeholder="Enter Pan Number" name="pan">
+            </div>
+            <div class="a">
+                <label for="">Bank Account Number</label>
+                <input type="text" value="{{i.bacc}} " placeholder="Enter Account Number" name="bacc">
+            </div>
+            <div class="a">
+                <label for="">IFSC Code</label>
+                <input type="text" value="{{i.bifsc}} " placeholder="Enter Bank IFSC code" name="bifsc" id="">
+            </div>
+            <div class="b">
+                <input type="reset" name="" id="">
+                <input type="submit" value="submit" id="">
+            </div>
+        </div>
+        {% endfor %}
+    </form>
+</body>
+</html>
