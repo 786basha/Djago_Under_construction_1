@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Details</title>
+    <style>
+        *{
+            padding: 0;margin: 0;box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .p{
+            width: 100vw;
+        }
+        table{
+            border: 1px solid black;
+            text-align:center;
+            margin: auto;
+        }
+        table th,table td{
+            padding: 10px;
+        }
+        button{
+            padding: 7px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+        <div class="p">
+            <div class="left">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Roll Number</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>mail ID</th>
+                            <th>Date of Birth</th>
+                            <th>aaddar</th>
+                            <th>Pan</th>
+                            <th>Bank Account</th>
+                            <th>Ifsc</th>
+                        </tr>
+                        {% for i in k %}
+                        <tr>
+                            <td>{{forloop.counter}} </td>
+                            <td>{{i.roll}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.phone}}</td>
+                            <td>{{i.mail}} </td>
+                            <td>{{i.dob}} </td>
+                            <td>{{i.addar}} </td>
+                            <td>{{i.pan}} </td>
+                            <td>{{i.bacc}} </td>
+                            <td>{{i.bifsc}} </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+            </div>
+        </div>
+</body>
+</html>

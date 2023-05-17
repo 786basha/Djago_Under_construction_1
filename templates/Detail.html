@@ -8,6 +8,7 @@
     <style>
         *{
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;padding: 0;
         }
         .p{
             width: 100vw;
@@ -19,6 +20,7 @@
         .left{
             width: 400px;
             border: 1px solid black;
+            border-radius: 8px;
             padding: 6px;
         }
         .right{
@@ -26,6 +28,7 @@
             height: max-content;
             padding: 6px;
             border: 1px solid red;
+            border-radius: 8px;
         }
         .aa{
             margin: auto;
@@ -60,56 +63,61 @@
             margin: 7px;
         }
         .b input{
-            width: 150px;
+            width: 125px;
+        }
+        .a input{
+            font-size: 15px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="main">
+        <div class="txt" style="text-decoration: none; text-align: center;"><h2> <u><b><a href="{% url 'fulldtl' %}">Add Details</a></b></u></h2></div>
         <div class="p">
             <div class="left">
                 <form method="post">
                     {% csrf_token %}
                     <div class="aa">
                         <div class="a">
-                            <label for="">Roll number</label>
-                            <input type="text" placeholder="Enter any Random Number" name="roll" id="" required>
+                            <label for="">Roll number :</label>
+                            <input type="text" placeholder="Create USER " name="roll" id="" required>
                         </div>
                         <div class="a">
-                            <label for="">Name</label>
+                            <label for="">Name :</label>
                             <input type="text" placeholder="Username" name="nam" id="" required>
                         </div>
                         <div class="a">
-                            <label for="">Mail</label>
+                            <label for="">Mail :</label>
                             <input type="email" placeholder="Enter E-mail ID" name="mail" id="" required>
                         </div>
                         <div class="a">
-                            <label for="">Phone</label>
+                            <label for="">Phone :</label>
                             <input type="number" name="phone" placeholder="Enter Mobile Number" id="" required>
                         </div>
                         <div class="a">
-                            <label for="">Date of Birth</label>
+                            <label for="">Date of Birth :</label>
                             <input type="date" name="dob" id="" required>
                         </div>
                         <div class="a">
-                            <label for="">Aadhaar Number</label>
+                            <label for="">Aadhaar Number :</label>
                             <input type="number" name="addar" placeholder="Enter Aadhaar Number" required>
                         </div>
                         <div class="a">
-                            <label for="">Pan Number</label>
-                            <input type="text" placeholder="Enter Pan Number" name="pan" required>
+                            <label for="">Pan Number :</label>
+                            <input type="text" placeholder="Enter Pan Number" name="pan" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}">
                         </div>
                         <div class="a">
-                            <label for="">Bank Account Number</label>
+                            <label for="">Bank Account Number :</label>
                             <input type="number" placeholder="Enter Account Number" name="bacc" required>
                         </div>
                         <div class="a">
-                            <label for="">IFSC Code</label>
+                            <label for="">IFSC Code :</label>
                             <input type="text" placeholder="Enter Bank IFSC code" name="bifsc" id="" required>
                         </div>
                         <div class="b">
-                            <input type="reset" name="" id="">
-                            <input type="submit" value="submit" id="">
+                            <input type="reset" name="" id="" value="Reset">
+                            <input type="submit" value="Submit" id="">
                         </div>
                     </div>
                 </form>
@@ -118,15 +126,15 @@
                 <div class="m">
                     <table>
                         <tr>
-                            <th>ID</th>
+                            <th style="width: 20px;">ID</th>
                             <th>Name</th>
                             <th>Mobile</th>
                         </tr>
                         {% for i in k %}
                         <tr>
-                            <td>{{forloop.counter}} </td>
-                            <td>{{i.name}}</td>
-                            <td>{{i.phone}}</td>
+                            <td style="width: 20px;">{{forloop.counter}} </td>
+                            <td style="width: 200px;">{{i.name}}</td>
+                            <td style="width: max-content;">{{i.phone}}</td>
                         </tr>
                         {% endfor %}
                     </table>

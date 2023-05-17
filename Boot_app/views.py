@@ -135,3 +135,7 @@ def DELdtl(request,id):
     D = Details.objects.get(id=id).delete()
     return redirect('detail')
     return render(request,'DtlDel.html',{'k':D})
+
+def Fulldtl(request):
+    l = Details.objects.all()
+    return render(request,'Fulldtl.html',{'k':l})
