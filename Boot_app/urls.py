@@ -8,7 +8,7 @@ urlpatterns = [
     path('update/<int:h>',views.update,name='update'),
     path('delete/<int:d>/',views.DELETE,name='del'),
 
-    path('Details',views.DETAIL,name='detail'),
+    path('',views.DETAIL,name='detail'),
     path('Full - Details/',views.Fulldtl,name='fulldtl'),
     path('Details-Up/',views.Dtlup,name='updtl'),
     path('Dtl-Update/<int:id>',views.UpDtl,name='upup'),
